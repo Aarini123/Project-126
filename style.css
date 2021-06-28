@@ -34,7 +34,18 @@ body{
     height: 100;
 }
 
+.Play_btn{
+    background-color: rgba(255, 255, 255, 0.965);
+    color: black;
+    font-weight: 600;
+    border-radius: 5px;
+font-size: 25px;
+width: 100px;
+margin-left: 600px;
+}
+
 canvas{
-    border-radius: 10;
-    border-color: white;
+    border: 5px solid white;
+    border-radius: 10px;
+    
 }
