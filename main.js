@@ -3,6 +3,7 @@ leftWristX=0;
 leftWristY=0;
 rightWristX=0;
 rightWristY=0;
+LeftwristScore=0;
 
 function preload(){
 song=loadSound("music.mp3");
@@ -16,7 +17,6 @@ function setup(){
     poseNet=ml5.poseNet(video,modelLoaded);
     poseNet.on("pose",gotposes);
 }
-
 function gotposes(results){
   if (results.length>0){
       console.log(results);
@@ -24,8 +24,11 @@ function gotposes(results){
       leftWristY=results[0].pose.leftWrist.y;
       rightWristX=results[0].pose.rightWrist.x;
       rightWristY=results[0].pose.rightWrist.y;
+      LeftwristScore=results[0].pose.keypoints[9].score;
+
   } 
 }
+
 
 function modelLoaded(){
     console.log("M0dE!L0aDeD!");
@@ -33,6 +36,21 @@ function modelLoaded(){
 
 function draw(){
     image(video,0,0,600,400);
+    fill("#06003b");
+    stroke("#06003b");
+    if(LeftwristScore>0.2){
+        circle(leftWristX,leftWristY,20);
+
+        Yvalue=Number(leftWristY);
+        Yvaluenum=floor(Yvalue);
+        volume=Yvaluenum/400;
+        document.getElementById("btn btn-info H3").innerHTML="Harry Potter Theme Song";
+       
+        Xvalue=Number(leftWristX);
+        Xvaluenum=floor(Xvalue);
+        volume2=Xvaluenum/400;
+        document.getElementById("btn btn-info H3").innerHTML="Peter Pan";
+    }
 }
 
 function play_music(){
