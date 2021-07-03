@@ -4,6 +4,7 @@ leftWristY=0;
 rightWristX=0;
 rightWristY=0;
 LeftwristScore=0;
+RightwristScore=0;
 
 function preload(){
 song=loadSound("music.mp3");
@@ -45,12 +46,14 @@ function draw(){
         Yvaluenum=floor(Yvalue);
         volume=Yvaluenum/400;
         document.getElementById("btn btn-info H3").innerHTML="Harry Potter Theme Song";
-       
-        Xvalue=Number(leftWristX);
-        Xvaluenum=floor(Xvalue);
-        volume2=Xvaluenum/400;
-        document.getElementById("btn btn-info H3").innerHTML="Peter Pan";
     }
+    if(RightwristScore>0.2){
+    Xvalue=Number(leftWristX);
+    Xvaluenum=floor(Xvalue);
+    volume2=Xvaluenum/400;
+    document.getElementById("btn btn-info H3").innerHTML="Peter Pan";
+    song.play("Groove Delgiht & Samantha Machado-Peter Pan(Official Lyric Video").mp3;
+}
 }
 
 function play_music(){
