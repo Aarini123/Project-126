@@ -57,7 +57,7 @@ if(song1_status==false){
 }
 if(RightwristScore>0.2){
     circle(rightWristX,rightWristY,20);
-song1.stops();
+song1.stop();
 if(song_status==false){
 song.play();
 document.getElementById("songName").innerHTML="Harry Potter Theme song";
